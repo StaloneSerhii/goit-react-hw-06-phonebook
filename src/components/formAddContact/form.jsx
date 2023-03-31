@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/userSlice';
+import { nanoid } from 'nanoid';
+
 export const Form = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -9,7 +11,6 @@ export const Form = () => {
   const changeSubmit = e => {
     const nameInput = e.currentTarget.name;
     const valueInput = e.currentTarget.value;
-
     switch (nameInput) {
       case 'name':
         setName(valueInput);
@@ -23,9 +24,9 @@ export const Form = () => {
   };
 
   const handleSubmit = (e) => {
+    let id = nanoid()
     e.preventDefault();
-    console.log({ name, number });
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({ name, number, id }));
     reset();
   };
 
