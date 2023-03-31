@@ -8,7 +8,6 @@ export const mySliceAddContacts = createSlice({
       state.push(action.payload);
     },
     onDelete(state, action) {
-      console.log(action.payload);
     return state.filter(contact => contact.id !== action.payload)
     }
   },
@@ -19,7 +18,6 @@ export const mySliceFilter = createSlice({
   initialState: '',
   reducers: {
       filterContacts(state, action){
-        console.log(action.payload);
         return (state = action.payload);
       }
   }

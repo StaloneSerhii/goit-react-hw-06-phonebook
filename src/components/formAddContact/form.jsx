@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/userSlice';
+import { addContact } from 'redux/Slice';
 import { nanoid } from 'nanoid';
 
 export const Form = () => {
