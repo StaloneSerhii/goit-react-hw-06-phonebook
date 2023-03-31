@@ -24,7 +24,7 @@ export const Contacts = () => {
           <li key={id}>
             <span>{name}</span>
             <span>{number}</span>
-            <button onClick={()=>dispatch(onDelete(id))}>x</button>
+            <button onClick={()=>dispatch(onDelete(id))}>Delete</button>
           </li>
         ))}
       </ul>

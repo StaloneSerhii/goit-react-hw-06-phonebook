@@ -5,7 +5,7 @@ export const FindFilt = () => {
   const dispatch = useDispatch();
   const inputValue = useSelector(state => state.filter);
   return (
-    <div>
+    <div className='filtr'>
       <span>Find contacts by name</span>
       <input
         type="text"

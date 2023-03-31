@@ -23,8 +23,8 @@ export const Form = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    let id = nanoid()
+  const handleSubmit = e => {
+    let id = nanoid();
     e.preventDefault();
     dispatch(addContact({ name, number, id }));
     reset();
@@ -39,9 +39,25 @@ export const Form = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <span>Name</span>
-        <input type="text" value={name} name="name" onChange={changeSubmit} />
+        <input
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          type="text"
+          value={name}
+          name="name"
+          onChange={changeSubmit}
+        />
         <span>Number</span>
-        <input type="text" value={number} name="number" onChange={changeSubmit} />
+        <input
+          required
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          type="tel"
+          value={number}
+          name="number"
+          onChange={changeSubmit}
+        />
         <button type="submit">Add Contact</button>
       </form>
     </div>
