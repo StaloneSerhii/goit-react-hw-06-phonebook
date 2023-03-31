@@ -8,7 +8,6 @@ export const Contacts = () => {
   const dispatch = useDispatch()
 
   const fiterRenderValue =()=>{
-    console.log(contact);
     const normalizedFilter = filter.toLocaleLowerCase();
     return contact.filter(contact => 
   contact.name.toLocaleLowerCase().includes(normalizedFilter)
@@ -22,7 +21,9 @@ export const Contacts = () => {
       <ul>
         {filterRend.map(({ name, number, id }) => (
           <li key={id}>
+            <p>Name:</p>
             <span>{name}</span>
+            <p>Number:</p>
             <span>{number}</span>
             <button onClick={()=>dispatch(onDelete(id))}>Delete</button>
           </li>
