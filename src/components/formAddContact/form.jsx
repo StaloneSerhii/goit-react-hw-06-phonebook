@@ -28,7 +28,7 @@ export const Form = () => {
     e.preventDefault();
     const alertFind = contact.find(contact => contact.name === name);
     if (alertFind) {
-      return alert('Refresh name');
+      return alert(`${name} is already in contacs.`);
     }
     let id = nanoid();
     dispatch(addContact({ name, number, id }));
