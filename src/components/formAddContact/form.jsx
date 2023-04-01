@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/Slice';
 import { nanoid } from 'nanoid';
 
 export const Form = () => {
+  const contact = useSelector(state => state.contacts);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -24,8 +25,12 @@ export const Form = () => {
   };
 
   const handleSubmit = e => {
-    let id = nanoid();
     e.preventDefault();
+    const alertFind = contact.find(contact => contact.name === name);
+    if (alertFind) {
+      return alert('Refresh name');
+    }
+    let id = nanoid();
     dispatch(addContact({ name, number, id }));
     reset();
   };
